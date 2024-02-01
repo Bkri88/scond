@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Credit Sales List</h1>
+    <table border="1">
+        <tr>
+            <th>Sale ID</th>
+            <th>Credit Amount</th>
+            <th>Partial Payment</th>
+            <th>Remaining Amount</th>
+            <th>Due Date</th>
+            <th>Is Paid</th>
+            <th>Action</th>
+        </tr>
+        {% for credit_sale in credit_sales %}
+        <tr>
+            <td>{{ credit_sale.sale.id }}</td>
+            <td>{{ credit_sale.credit_amount }}</td>
+            <td>{{ credit_sale.partial_payment_amount }}</td>
+            <td>{{ credit_sale.remaining_amount }}</td>
+            <td>{{ credit_sale.payment_due_date }}</td>
+            <td>{{ credit_sale.is_paid }}</td>
+            <td><a href="#">Update Payment</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
